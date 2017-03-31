@@ -26,6 +26,20 @@
             </div>
         </div>
     </div>
+    <div th:fragment="display-table">
+        <div th:if="${jobs} and ${jobs.size()}">
+            <table th:each="job : ${jobs}" class="job-listing">
+                <tr th:each="field : ${job}">
+                    <td th:text="${field.key}"></td>
+                    <td th:text="${field.value}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
 </body>
 </html>
+
+<!--for (String key : row.keySet()) {
+String aValue = row.get(key);
+<option th:each="month: ${months}" th:value="${month.key}" th:text="${month.value}"-->
